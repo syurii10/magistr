@@ -28,47 +28,39 @@ set -e
 
               # Оновлення системи
               apt-get update
-              apt-get install -y python3-pip git python3-psutil python3-requests
+              apt-get install -y python3-pip git python3-psutil python3-requests apache2 php libapache2-mod-php
 
               # Клонування репозиторію зі скриптами
               cd /home/ubuntu
               if [ ! -d "scripts" ]; then
-                git clone ${var.github_repo} scripts || echo "Git clone failed, will use local scripts"
+                git clone -b main ${var.github_repo} repo || echo "Git clone failed"
               fi
 
-              if [ -d "scripts" ]; then
-                cd scripts
-                git pull origin master || true
+              # Копіювання сайту в Apache document root
+              if [ -d "repo/website" ]; then
+                rm -f /var/www/html/index.html
+                cp -r repo/website/* /var/www/html/
+                chown -R www-data:www-data /var/www/html/
+
+                # Виправлення PHP - вимкнення MySQL
+                echo '<?php // Database disabled for demo ?>' > /var/www/html/blocks/bd.php
+              fi
+
+              # Копіювання скриптів
+              if [ -d "repo/scripts" ]; then
+                cp -r repo/scripts /home/ubuntu/
                 chown -R ubuntu:ubuntu /home/ubuntu/scripts
               fi
 
-              # Запуск CPU-intensive сервера як systemd service
-              cat > /etc/systemd/system/target-server.service <<'SERVICE'
-[Unit]
-Description=Target HTTP Server for Load Testing
-After=network.target
-
-[Service]
-Type=simple
-User=root
-WorkingDirectory=/home/ubuntu/scripts
-ExecStart=/usr/bin/python3 /home/ubuntu/scripts/target_server.py 80
-Restart=always
-RestartSec=3
-
-[Install]
-WantedBy=multi-user.target
-SERVICE
-
-              # Запуск сервісу
-              systemctl daemon-reload
-              systemctl enable target-server
-              systemctl start target-server
+              # Налаштування Apache для більшого навантаження
+              a2enmod php8.1
+              systemctl enable apache2
+              systemctl restart apache2
 
               # Встановлення залежностей для збору метрик
               pip3 install psutil
 
-              echo "Target server setup completed" > /home/ubuntu/setup_complete.txt
+              echo "Target server with Apache + PHP setup completed" > /home/ubuntu/setup_complete.txt
               EOF
 
   tags = {
