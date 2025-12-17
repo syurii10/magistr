@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Server - DDoS Research Lab</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+        .container {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+        }
+        .logo {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #00d4ff, #7b2cbf);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .subtitle {
+            font-size: 1.2em;
+            color: #a0a0a0;
+            margin-bottom: 30px;
+        }
+        .status {
+            display: inline-block;
+            padding: 10px 30px;
+            background: linear-gradient(90deg, #00c853, #00e676);
+            border-radius: 50px;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 30px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .info-box {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: left;
+        }
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .info-row:last-child {
+            border-bottom: none;
+        }
+        .info-label {
+            color: #a0a0a0;
+        }
+        .info-value {
+            color: #00d4ff;
+            font-family: monospace;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        .warning {
+            background: rgba(255, 193, 7, 0.2);
+            border: 1px solid #ffc107;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            color: #ffc107;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">🖥️</div>
+        <h1>Test Server</h1>
+        <p class="subtitle">DDoS Research Laboratory</p>
+
+        <div class="status">● ONLINE</div>
+
+        <div class="info-box">
+            <div class="info-row">
+                <span class="info-label">Server Type:</span>
+                <span class="info-value">HTTP Test Server</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Platform:</span>
+                <span class="info-value">AWS EC2 (t3.small)</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Region:</span>
+                <span class="info-value">eu-central-1</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">OS:</span>
+                <span class="info-value">Ubuntu 22.04 LTS</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Purpose:</span>
+                <span class="info-value">Academic Research</span>
+            </div>
+        </div>
+
+        <div class="warning">
+            ⚠️ This is a controlled test environment for educational purposes only.
+        </div>
+
+        <p class="footer">
+            Master's Thesis Research Project<br>
+            Cybersecurity & DDoS Attack Simulation
+        </p>
+    </div>
+</body>
+</html>
