@@ -1,0 +1,125 @@
+body {
+    background-image: url("images/192848810.png");
+    margin: 0;
+    padding: 0;
+
+}
+
+#tab td {
+    background-color: #DDDDDD;
+}
+
+#regForm {
+   margin: 50px auto;
+   width: 250px;
+   height: 250px;
+   border: 1px solid #A0A0A0;
+   background-color: #ECECEC;
+   -moz-box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Для Firefox */
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Для Safari и Chrome */
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    padding-left: 40px;
+    padding-top: 15px;
+    border-radius: 5px 5px 5px 5px;
+    color: #4C4C4C;
+    font-size: 16px;
+    font-weight: 700;
+    border: 1px solid #A1A1A1;
+}
+
+
+body#reg {
+    margin: 0;
+    padding: 0;
+    padding-left: 10px;
+    /*background-image: url("images/bg.jpg");*/
+}
+
+body#reg a {
+    color: #065AAE;
+}
+
+#cpanel {
+    height: 65px;
+    width: 290px;
+    margin-left: -40px;
+    margin-top: -15px;
+    border-radius: 5px 5px 0px 0px; 
+    background: linear-gradient(to bottom, #E5E5E5 0px, #D4D4D4 100%) transparent;
+    border-bottom: 1px solid #A1A1A1;
+}
+
+
+#cpanel img {
+    margin: 0px auto;
+    padding: 8px;
+    height: 50px;
+    width: 165px;
+    display: block;
+}
+
+#regForm input[type="submit"] {
+    background-color: #F78E1E;
+    background-image: -o-linear-gradient(to bottom, #F78E1E, #E47513);
+    border: 1px solid #CC6600;
+    border-radius: 3px;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-weight: 700;
+    overflow: visible;
+    padding: 5px 25px;
+    width: auto;
+}
+
+
+#regForm input[type="text"], #regForm input[type="password"] {
+    background-color: #FFFFFF;
+    background-repeat: no-repeat;
+    border: 1px solid #BEBEBE;
+    border-radius: 5px;
+    box-shadow: inset 0px 10px 10px #E9E9E9;
+    height: 32px;
+}
+
+
+img.background-image { 
+height: auto;
+left: 0px;
+min-height: 100%;
+min-width: 1024px;
+position: fixed;
+top: 0px;
+width: 100%;
+z-index: -1;
+}
+
+#regForm #login {
+    background-image:url("images/icon-username.png");
+    background-position: 0 5px;
+    padding-left: 20px;
+}
+
+#regForm #pass {
+    background-image:url("images/icon-password.png");
+    padding-left: 20px;
+    background-position: 0 5px;
+}
+
+
+#headerImg {
+    background-image:url("images/Blogger-Header-10.jpg");
+    height: 150px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#headerImg1 {
+    background-image: url("images/top-logo_opt.png");
+    height: 62px; 
+    width: 236px;
+    position: relative;
+    top: 40px;
+    left: 300px;
+}
