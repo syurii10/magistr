@@ -60,15 +60,15 @@ else
 fi
 echo ""
 
-# Перевірка Target Server
+# Перевірка Target Server (Apache)
 echo -e "${YELLOW}[TARGET SERVER]${NC} $TARGET_IP"
-SERVER_STATUS=$(ssh -o StrictHostKeyChecking=no -i "$KEY_PATH" ubuntu@$TARGET_IP "sudo systemctl is-active target-server" 2>/dev/null)
+SERVER_STATUS=$(ssh -o StrictHostKeyChecking=no -i "$KEY_PATH" ubuntu@$TARGET_IP "sudo systemctl is-active apache2" 2>/dev/null)
 if [ "$SERVER_STATUS" = "active" ]; then
-    echo -e "  Target Server: ${GREEN}RUNNING${NC}"
+    echo -e "  Apache Server: ${GREEN}RUNNING${NC}"
     CPU_USAGE=$(ssh -o StrictHostKeyChecking=no -i "$KEY_PATH" ubuntu@$TARGET_IP "top -bn1 | grep 'Cpu(s)' | awk '{print \$2}'" 2>/dev/null)
-    echo -e "  CPU Usage: ${CPU_USAGE}"
+    echo -e "  CPU Usage: ${CPU_USAGE}%"
 else
-    echo -e "  Target Server: ${RED}STOPPED${NC}"
+    echo -e "  Apache Server: ${RED}STOPPED${NC}"
 fi
 echo ""
 echo -e "${GREEN}═══════════════════════════════════════════${NC}"
